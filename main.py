@@ -1,15 +1,16 @@
+from dotenv import load_dotenv
+import mlflow.sklearn
+import pandas as pd
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import pandas as pd
-import mlflow.sklearn
 import os
-
 
 mlflow.set_tracking_uri("databricks")
 
-URL_MODELO = "models:/workspace.default.trafico_tenerife3/1" 
+URL_MODELO = "models:/workspace.default.trafico_tenerife_definitive_edition/1"
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
